@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizon - The Ultimate Social Racing Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Exo+2:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Header / Navigation -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <a href="#" class="text-3xl font-bold font-display tracking-wider nav-link" data-page="main-page">HORIZON</a>
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="#" class="nav-link" data-page="experience-page">The Experience</a>
+                    <a href="#" class="nav-link" data-page="menu-page">Food & Drink</a>
+                    <a href="#race-formats" class="nav-link" data-page="main-page">Race Formats</a>
+                    <a href="#events" class="nav-link" data-page="main-page">Events</a>
+                </nav>
+                <div class="hidden md:flex items-center gap-4" id="desktop-auth-buttons">
+                    <!-- Auth buttons will be injected here by JS -->
+                </div>
+                <button id="mobile-menu-button" class="md:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-stone-900/90 backdrop-blur-sm">
+            <a href="#" class="nav-link block text-center py-3 hover:bg-amber-500/20" data-page="experience-page">The Experience</a>
+            <a href="#" class="nav-link block text-center py-3 hover:bg-amber-500/20" data-page="menu-page">Food & Drink</a>
+            <a href="#race-formats" class="nav-link block text-center py-3 hover:bg-amber-500/20" data-page="main-page">Race Formats</a>
+            <a href="#events" class="nav-link block text-center py-3 hover:bg-amber-500/20" data-page="main-page">Events</a>
+            <a href="#locations" class="nav-link block text-center py-3 hover:bg-amber-500/20" data-page="main-page">Locations</a>
+            <div class="p-4" id="mobile-auth-buttons">
+                <!-- Mobile auth buttons will be injected here by JS -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Page Content -->
+    <div id="main-page">
+        <main>
+            <!-- Hero Section -->
+            <section class="relative h-screen flex items-center justify-center text-center overflow-hidden hero-vignette">
+                <div class="absolute inset-0 bg-black z-[-2]"></div>
+                <video autoplay muted loop playsinline id="hero-video"><source src="https://assets.mixkit.co/videos/preview/mixkit-a-stream-of-neon-lights-on-a-highway-44099-large.mp4" type="video/mp4"></video>
+                <div class="relative z-10 px-4">
+                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-wider">Your Race <span class="text-gradient">Awaits</span></h1>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-300">The ultimate social racing experience. Drive cutting-edge sims, enjoy premium food & virgin drinks, and compete with friends.</p>
+                    <div class="mt-10">
+                        <button class="nav-link bg-amber-500 text-stone-900 hover:bg-amber-400 font-bold py-4 px-10 rounded-lg btn-glow text-lg uppercase tracking-wider" data-page="booking-page">Book Your Drive</button>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Race Formats Section -->
+            <section id="race-formats" class="py-20 md:py-32">
+                <div class="container mx-auto px-4 text-center">
+                    <h2 class="text-4xl md:text-5xl font-bold reveal">Choose Your <span class="text-gradient">Challenge</span></h2>
+                    <p class="mt-4 max-w-3xl mx-auto text-gray-400 reveal" style="transition-delay: 100ms;">Whether you're a strategic mastermind or a sprint specialist, we have a race format for you.</p>
+                    <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                        <!-- Grand Prix Layout Card -->
+                        <div class="card-glass p-8 rounded-2xl reveal text-left" style="transition-delay: 200ms;">
+                            <h3 class="text-3xl font-bold mb-4 text-gradient">Grand Prix Layout</h3>
+                            <p class="text-gray-400 mb-4">The ultimate test of skill and strategy. This full-length simulation mirrors a real F1 race weekend.</p>
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-center gap-3"><span class="text-amber-400 font-bold">Simulators:</span> 6</li>
+                                <li class="flex items-center gap-3"><span class="text-amber-400 font-bold">Format:</span> Briefing, Practice, Qualifying & 8-Lap Race</li>
+                                <li class="flex items-center gap-3"><span class="text-amber-400 font-bold">Ideal For:</span> Immersive, strategic racing</li>
+                            </ul>
+                        </div>
+                        <!-- Sprint Layout Card -->
+                        <div class="card-glass p-8 rounded-2xl reveal text-left" style="transition-delay: 300ms;">
+                             <h3 class="text-3xl font-bold mb-4 text-gradient">Sprint Layout</h3>
+                            <p class="text-gray-400 mb-4">Pure, high-octane action. Jump straight into a 6-lap dash for glory against your rivals.</p>
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-center gap-3"><span class="text-amber-400 font-bold">Simulators:</span> 4</li>
+                                <li class="flex items-center gap-3"><span class="text-amber-400 font-bold">Format:</span> Short 6-lap sprint races</li>
+                                <li class="flex items-center gap-3"><span class="text-amber-400 font-bold">Ideal For:</span> Quick competitive challenges</li>
+                            </ul>
+                        </div>
+                    </div>
+                     <div class="mt-16 reveal card-glass p-8 rounded-2xl" style="transition-delay: 400ms;">
+                        <h3 class="text-3xl font-bold text-gradient">Weekly Showdown Finale</h3>
+                        <p class="mt-4 max-w-3xl mx-auto text-gray-300">Win a daily Grand Prix session to qualify for the Sunday Showdown. Compete against the week's best drivers to be crowned the Horizon Champion and get your name on the <span class="font-bold text-white">Wall of Champions!</span></p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Events Section -->
+            <section id="events" class="py-20 md:py-32 bg-stone-900">
+                <div class="container mx-auto px-4 text-center">
+                    <div class="relative z-10 container mx-auto px-4 reveal">
+                        <h2 class="text-4xl md:text-5xl font-bold">Unforgettable <span class="text-gradient">Events</span></h2>
+                        <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-300">From high-stakes corporate functions to legendary birthday parties, host an event that will be talked about for years to come.</p>
+                        <div class="mt-10 max-w-2xl mx-auto card-glass p-6 rounded-lg text-left">
+                            <h3 class="text-2xl font-bold mb-4 text-amber-400 text-center">✨ Let Our AI Plan Your Party!</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label for="event-type" class="block text-sm font-medium text-gray-300 mb-1">Type of Event</label>
+                                    <input type="text" id="event-type" placeholder="e.g., Birthday Party" class="w-full bg-stone-800 border-stone-700 text-white rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-amber-500">
+                                </div>
+                                <div>
+                                    <label for="guest-count" class="block text-sm font-medium text-gray-300 mb-1">Number of Guests</label>
+                                    <input type="number" id="guest-count" placeholder="e.g., 20" class="w-full bg-stone-800 border-stone-700 text-white rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-amber-500">
+                                </div>
+                            </div>
+                            <button id="generate-event-btn" class="w-full bg-amber-500 text-stone-900 font-bold py-3 px-6 rounded-lg btn-glow">Generate Event Ideas & Invitation</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- Locations Section -->
+            <section id="locations" class="py-20 md:py-32">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 reveal">Find Your <span class="text-gradient">Grid</span></h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="reveal" style="transition-delay: 100ms;">
+                            <div class="card-glass rounded-2xl p-6 text-center flex flex-col justify-between h-full">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white mb-2">Mumbai</h3>
+                                    <p class="text-gray-400 mb-4">The City of Dreams awaits your racing debut.</p>
+                                </div>
+                                <button class="w-full mt-4 bg-amber-500/10 border border-amber-500 text-amber-500 font-bold py-2 px-4 rounded-lg hover:bg-amber-500 hover:text-stone-900 transition-colors duration-300 nav-link" data-page="booking-page">Book Now</button>
+                            </div>
+                        </div>
+                         <div class="reveal" style="transition-delay: 200ms;">
+                            <div class="card-glass rounded-2xl p-6 text-center flex flex-col justify-between h-full">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white mb-2">Bengaluru</h3>
+                                    <p class="text-gray-400 mb-4">The tech hub's fastest track is calling your name.</p>
+                                </div>
+                                <button class="w-full mt-4 bg-amber-500/10 border border-amber-500 text-amber-500 font-bold py-2 px-4 rounded-lg hover:bg-amber-500 hover:text-stone-900 transition-colors duration-300 nav-link" data-page="booking-page">Book Now</button>
+                            </div>
+                        </div>
+                         <div class="reveal" style="transition-delay: 300ms;">
+                            <div class="card-glass rounded-2xl p-6 text-center flex flex-col justify-between h-full">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white mb-2">Noida</h3>
+                                    <p class="text-gray-400 mb-4">Experience the future of racing in the NCR.</p>
+                                </div>
+                                <button class="w-full mt-4 bg-amber-500/10 border border-amber-500 text-amber-500 font-bold py-2 px-4 rounded-lg hover:bg-amber-500 hover:text-stone-900 transition-colors duration-300 nav-link" data-page="booking-page">Book Now</button>
+                            </div>
+                        </div>
+                         <div class="reveal" style="transition-delay: 400ms;">
+                           <div class="card-glass rounded-2xl p-6 text-center flex flex-col justify-between h-full">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white mb-2">Hyderabad</h3>
+                                    <p class="text-gray-400 mb-4">The City of Pearls now has a diamond of a track.</p>
+                                </div>
+                                <button class="w-full mt-4 bg-amber-500/10 border border-amber-500 text-amber-500 font-bold py-2 px-4 rounded-lg hover:bg-amber-500 hover:text-stone-900 transition-colors duration-300 nav-link" data-page="booking-page">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Experience Page Content -->
+    <div id="experience-page" class="hidden">
+        <main class="py-32 md:py-40">
+            <div class="container mx-auto px-4">
+                <button class="nav-link text-amber-400 hover:text-amber-200 mb-12 inline-flex items-center gap-2" data-page="main-page">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    Back to Home
+                </button>
+                <div class="max-w-3xl mx-auto space-y-20 text-center">
+                    <section>
+                        <h2 class="text-4xl md:text-5xl font-bold mb-6">Innovation Meets <span class="text-gradient">Adrenaline</span></h2>
+                        <div class="text-lg text-gray-300 leading-relaxed space-y-4 text-left md:text-center">
+                           <p>At Horizon, innovation meets adrenaline. Born from the engineering minds that created the C05 Formula Student car, we've reimagined motorsport entertainment—blending the thrill of racing with next-level comfort.</p>
+                           <p>Guided by the same passion that inspired the C05, Horizon fuses immersive technology and a passionate community to redefine motorsport experiences. At Horizon, you’re closer to the race than ever before—not just a spectator, but truly part of the action.</p>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3 class="text-3xl md:text-4xl font-bold mb-4">The Simulators</h3>
+                        <p class="text-lg text-gray-300 leading-relaxed">Our space centers around state-of-the-art racing simulators with advanced 4 DOF (Degrees of Freedom) motion technology. This brings hyper-realistic track feedback, letting you feel every bump, curb, and change in elevation. Whether you’re a seasoned racer or a beginner, it's the closest you can get to the real thing.</p>
+                    </section>
+                    
+                    <section>
+                        <h3 class="text-3xl md:text-4xl font-bold mb-4">The Lounge</h3>
+                        <p class="text-lg text-gray-300 leading-relaxed">Our top-notch, premium lounge is the heart of the social experience at Horizon. Relax in comfort, watch live race screenings on our big screens, and soak in a dynamic atmosphere of friendly competition. It's the perfect place to debrief after a race or plan your next on-track battle.</p>
+                    </section>
+
+                    <section>
+                       <h3 class="text-3xl md:text-4xl font-bold mb-4">RC Cafeteria</h3>
+                       <p class="text-lg text-gray-300 leading-relaxed">Refuel with our cloud kitchen’s energizing menu. We serve a perfectly designed selection of quick bites, refreshing drinks, and comfort food, ideal for a pit stop between races.</p>
+                    </section>
+
+                    <section>
+                        <h3 class="text-3xl md:text-4xl font-bold mb-4">RC Track</h3>
+                        <p class="text-lg text-gray-300 leading-relaxed">At the heart of the venue, our custom RC track delivers electrifying miniature racing. It’s a unique attraction for hobbyists, fans, and anyone looking for a different kind of racing thrill.</p>
+                    </section>
+                    
+                    <section>
+                        <h3 class="text-3xl md:text-4xl font-bold mb-4">Wear Your Passion</h3>
+                        <p class="text-lg text-gray-300 leading-relaxed">We carry our C05 spirit off the track with exclusive custom apparel, collectibles, and motorsport-themed accessories. Find the perfect gear for those who live and breathe racing.</p>
+                        <button class="mt-8 bg-amber-500 text-stone-900 hover:bg-amber-400 font-bold py-3 px-8 rounded-lg btn-glow text-lg">Shop Merch</button>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Auth Page Content -->
+    <div id="auth-page" class="hidden">
+        <main class="py-32 md:py-40">
+            <div class="container mx-auto px-4 flex justify-center">
+                <div class="w-full max-w-md">
+                    <div id="login-view">
+                        <div class="card-glass p-8 rounded-2xl"><h2 class="text-3xl font-bold text-center mb-1">Welcome <span class="text-gradient">Back</span></h2><p class="text-center text-gray-400 mb-6">Login to your account to get racing.</p><form id="login-form"><div class="space-y-4"><input type="email" id="login-email" placeholder="Email Address" class="form-input" required><input type="password" id="login-password" placeholder="Password" class="form-input" required></div><div class="mt-6"><button type="submit" class="w-full bg-amber-500 text-stone-900 font-bold py-3 px-6 rounded-lg btn-glow">Login</button></div></form><div id="login-message" class="mt-4 text-center text-red-400"></div><p class="text-center mt-6 text-sm text-gray-400">Don't have an account? <button id="show-signup-btn" class="font-semibold text-amber-400 hover:text-amber-300">Sign Up</button></p></div>
+                    </div>
+                    <div id="signup-view" class="hidden">
+                         <div class="card-glass p-8 rounded-2xl"><h2 class="text-3xl font-bold text-center mb-1">Create Your <span class="text-gradient">Profile</span></h2><p class="text-center text-gray-400 mb-6">Join the grid! A Horizon profile unlocks your racing career.</p><form id="signup-form"><div class="space-y-4"><input type="text" id="signup-name" placeholder="Full Name" class="form-input" required><input type="email" id="signup-email" placeholder="Email Address" class="form-input" required><input type="tel" id="signup-phone" placeholder="Phone Number" class="form-input"><input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="signup-dob" placeholder="Date of Birth" class="form-input"><input type="password" id="signup-password" placeholder="Password" class="form-input" required><input type="password" id="signup-confirm-password" placeholder="Confirm Password" class="form-input" required></div><div class="mt-6"><button type="submit" class="w-full bg-amber-500 text-stone-900 font-bold py-3 px-6 rounded-lg btn-glow">Create Account</button></div></form><div id="signup-message" class="mt-4 text-center text-red-400"></div><p class="text-center mt-6 text-sm text-gray-400">Already have an account? <button id="show-login-btn" class="font-semibold text-amber-400 hover:text-amber-300">Login</button></p></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Profile Page -->
+    <div id="profile-page" class="hidden">
+        <main class="py-32 md:py-40">
+            <div class="container mx-auto px-4">
+                 <h2 class="text-4xl md:text-5xl font-bold text-center">Your <span class="text-gradient">Driver Profile</span></h2>
+                 <p class="mt-4 max-w-2xl mx-auto text-gray-400 text-center" id="profile-welcome-name">Welcome back, Racer!</p>
+                 <div class="max-w-4xl mx-auto mt-12 grid md:grid-cols-3 gap-8 items-start">
+                    <!-- Loyalty Points Card -->
+                    <a href="#" data-page="rewards-page" class="nav-link md:col-span-1 card-glass p-8 rounded-2xl text-center flex flex-col justify-center hover:border-amber-400 transition-colors duration-300">
+                        <h3 class="text-xl font-bold uppercase tracking-wider text-gray-400">Loyalty Points</h3>
+                        <div id="profile-loyalty-points-display" class="points-display text-gradient my-4">0</div>
+                        <p class="text-sm text-amber-400">View Rewards &rarr;</p>
+                    </a>
+                    <!-- User Details -->
+                    <div class="md:col-span-2 card-glass p-8 rounded-2xl">
+                        <h3 class="text-2xl font-bold mb-4">Account Details</h3>
+                        <div class="space-y-3">
+                            <div><strong class="text-amber-400">Name:</strong> <span id="profile-detail-name"></span></div>
+                            <div><strong class="text-amber-400">Email:</strong> <span id="profile-detail-email"></span></div>
+                            <div><strong class="text-amber-400">Phone:</strong> <span id="profile-detail-phone"></span></div>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- REWARDS PAGE -->
+    <div id="rewards-page" class="hidden">
+        <main class="py-32 md:py-40">
+            <div class="container mx-auto px-4">
+                 <h2 class="text-4xl md:text-5xl font-bold text-center">Loyalty <span class="text-gradient">Rewards</span></h2>
+                 <p class="mt-4 max-w-2xl mx-auto text-gray-400 text-center">You've earned it. Redeem your points for exclusive perks and gear.</p>
+                 
+                 <div class="max-w-xl mx-auto mt-12 card-glass p-8 rounded-2xl text-center">
+                    <h3 class="text-xl font-bold uppercase tracking-wider text-gray-400">Your Points Balance</h3>
+                    <div id="rewards-loyalty-points-display" class="points-display text-gradient my-4">0</div>
+                 </div>
+
+                 <!-- Rewards Section -->
+                 <div class="max-w-5xl mx-auto mt-16">
+                    <h3 class="text-3xl font-bold text-center mb-8">Redeem Your <span class="text-gradient">Rewards</span></h3>
+                    <div id="rewards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Rewards injected by JS -->
+                    </div>
+                 </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Menu and Booking Pages -->
+    <div id="menu-page" class="hidden">
+        <main class="py-32 md:py-40"><div class="container mx-auto px-4"><button class="nav-link text-amber-400 hover:text-amber-200 mb-8 inline-flex items-center gap-2" data-page="main-page"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>Back to Home</button><section id="food-and-drink-section"><div class="text-center"><h2 class="text-4xl md:text-5xl font-bold">Fuel Your <span class="text-gradient">Victory</span></h2><p class="mt-4 max-w-3xl mx-auto text-gray-400">Our menu is engineered for flavor. From trackside snacks to celebratory feasts, every dish is a winner.</p></div><div class="max-w-5xl mx-auto mt-12"><div class="flex justify-center border-b border-stone-700 mb-8 space-x-8"><button class="menu-tab active text-2xl font-bold pb-2" data-menu="food-menu">RC Cafeteria</button><button class="menu-tab text-2xl font-bold pb-2" data-menu="drinks-menu">Starting Grid</button></div><div id="food-menu" class="menu-content active"><div class="grid md:grid-cols-2 gap-x-12 gap-y-6"></div></div><div id="drinks-menu" class="menu-content"><div class="grid md:grid-cols-2 gap-x-12 gap-y-6"></div><div class="mt-16 max-w-2xl mx-auto card-glass p-6 rounded-lg text-left"><h3 class="text-2xl font-bold mb-4 text-amber-400 text-center">✨ AI Mocktail Creator</h3><p class="text-center text-gray-300 mb-4">Can't decide? Tell us your favorite flavors and our AI will invent the perfect drink for you!</p><div class="flex gap-4 mb-4"><input type="text" id="mocktail-flavors" placeholder="e.g., spicy, sweet, fruity" class="w-full bg-stone-800 border-stone-700 text-white rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-amber-500"></div><button id="generate-mocktail-btn" class="w-full bg-amber-500 text-stone-900 font-bold py-3 px-6 rounded-lg btn-glow">Design My Drink</button></div></div></div></section></div></main>
+    </div>
+    <div id="booking-page" class="hidden">
+        <main class="py-32 md:py-40"><div class="container mx-auto px-4"><button class="nav-link text-amber-400 hover:text-amber-200 mb-8 inline-flex items-center gap-2" data-page="main-page"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>Back to Home</button><h2 class="text-4xl md:text-5xl font-bold text-center">Book Your <span class="text-gradient">Simulator</span></h2><p class="mt-4 max-w-2xl mx-auto text-gray-400 text-center">Select a date, choose a time, and get ready to race. Each slot is for 1 hour of thrilling competition.</p><div class="max-w-4xl mx-auto mt-12 card-glass p-8 rounded-2xl"><form id="booking-form"><div class="mb-8"><h3 class="text-2xl font-bold mb-4"><span class="text-gradient">Step 1:</span> Select a Date</h3><input type="date" id="booking-date" class="form-input w-full md:w-1/2"></div><div class="mb-8"><h3 class="text-2xl font-bold mb-4"><span class="text-gradient">Step 2:</span> Select a Time Slot</h3><div id="time-slots-container" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"></div></div><div><h3 class="text-2xl font-bold mb-4"><span class="text-gradient">Step 3:</span> Confirm Your Details</h3><div class="grid grid-cols-1 md:grid-cols-2 gap-6"><div><label for="simulator-count" class="block text-sm font-medium text-gray-300 mb-1">Number of Simulators</label><input type="number" id="simulator-count" class="form-input" value="1" min="1" max="10"></div><div><label for="booking-name" class="block text-sm font-medium text-gray-300 mb-1">Full Name</label><input type="text" id="booking-name" class="form-input" placeholder="Your Name" required></div><div class="md:col-span-2"><label for="booking-email" class="block text-sm font-medium text-gray-300 mb-1">Email Address</label><input type="email" id="booking-email" class="form-input" placeholder="your.email@example.com" required></div></div></div><div class="mt-10 text-center"><button type="submit" id="confirm-booking-btn" class="bg-amber-500 text-stone-900 font-bold py-4 px-10 rounded-lg btn-glow text-lg uppercase tracking-wider">Confirm Booking</button></div></form><div id="booking-message" class="mt-6 text-center"></div></div></div></main>
+    </div>
+    
+    <!-- Footer and Modals -->
+    <footer class="bg-stone-900/50 border-t border-amber-500/10">
+        <div class="container mx-auto px-4 py-12 text-center text-gray-500">
+            <p>&copy; 2024 Horizon Racing Club. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- AI Modal -->
+    <div id="ai-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden"><div class="w-full max-w-2xl bg-stone-900 border border-amber-500/20 rounded-2xl shadow-2xl p-6 relative"><button id="close-ai-modal-btn" class="absolute top-4 right-4 text-gray-400 hover:text-white">&times;</button><div id="ai-modal-content-wrapper"><div id="ai-modal-content" class="text-gray-300 max-h-[70vh] overflow-y-auto pr-2"></div></div></div></div>
+
+    <!-- Booking Confirmation Modal -->
+    <div id="booking-confirmation-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="w-full max-w-lg bg-stone-900 border border-green-500/50 rounded-2xl shadow-2xl p-8 text-center relative">
+            <div class="text-green-400 mx-auto mb-4 w-16 h-16 rounded-full border-2 border-green-400 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            </div>
+            <h2 class="text-3xl font-bold text-white mb-2">Booking Confirmed!</h2>
+            <p class="text-gray-300 mb-6">Your spot on the grid is secured. See you on the track!</p>
+            <div id="booking-confirmation-details" class="text-left bg-stone-800 p-4 rounded-lg space-y-2 mb-8">
+                <!-- Confirmation details will be injected here -->
+            </div>
+            <button id="close-confirmation-modal-btn" class="bg-amber-500 text-stone-900 font-bold py-3 px-8 rounded-lg btn-glow">Awesome!</button>
+        </div>
+    </div>
+
+
+    <!-- Firebase SDK and Script -->
+    <script type="module" src="script.js"></script>
+
+</body>
+</html>
